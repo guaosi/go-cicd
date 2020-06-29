@@ -1,0 +1,1 @@
+kubectl scale --replicas=0 deployment/svc-account -n go-micro && kubectl scale --replicas=3 deployment/svc-account -n go-micro
