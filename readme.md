@@ -1,3 +1,7 @@
+# 手摸手教你从0到1搭建部署Go微服务-CI/CD
+
+本仓库配合 [手摸手教你从开发到部署(CI/CD)GO微服务系列](https://www.guaosi.com/2020/07/05/go-microservice-series-from-development-to-deployment-introduction-contents/) 食用最佳噢~
+
 ## 创建专属网络
 
 为了隔离和管理,所以先创建一个专属网络
@@ -9,7 +13,7 @@ docker network create cicd --driver bridge
 
 ### 更改宿主机ssh端口
 
-把宿主机的ssh端口从22改为222(因为GIT底层也是ssh)
+把宿主机的ssh端口从22改为222(因为GIT底层也是22端口)
 
 ```
 vim /etc/ssh/sshd_config
@@ -52,10 +56,14 @@ docker-compose up -d
 ```
 cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-
-### 给jenkins换源
-进入 `/var/jenkins_home/updates`
+### 更新
 ```
+apt-get update
+```
+### 给jenkins换源
+```
+cd /var/jenkins_home/updates
+
 sed -i 's/http:\/\/updates.jenkins-ci.org\/download/https:\/\/mirrors.tuna.tsinghua.edu.cn\/jenkins/g' default.json && sed -i 's/http:\/\/www.google.com/https:\/\/www.baidu.com/g' default.json
 ```
 

@@ -1,8 +1,2 @@
 .idea
-/vendor/*
-!/vendor/modules.txt
-/config.yml
-go.sum
-/casbin_model.conf
-/logs
-/go-gin-init
+.DS_Store
